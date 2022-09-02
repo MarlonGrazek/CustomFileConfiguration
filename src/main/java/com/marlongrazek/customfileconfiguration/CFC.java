@@ -13,12 +13,16 @@ public final class CFC extends YamlConfiguration {
     private final Plugin plugin;
     private final File file;
 
-    public CFC(String name, Plugin plugin) throws IOException, InvalidConfigurationException {
+    public CFC(String name, Plugin plugin) {
 
         this.plugin = plugin;
         file = new File(plugin.getDataFolder(), name.endsWith(".yml") ? name : name + ".yml");
 
-        loadConfig();
+        try {
+            loadConfig();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void save() {
