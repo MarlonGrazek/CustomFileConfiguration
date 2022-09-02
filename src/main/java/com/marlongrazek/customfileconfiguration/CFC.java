@@ -61,7 +61,7 @@ public final class CFC extends YamlConfiguration {
     }
 
     public void set(String path, Object object) {
-        YamlConfiguration.loadConfiguration(file).set(path, object);
+        super.set(path, object);
         save();
     }
 }
